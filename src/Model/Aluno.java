@@ -44,12 +44,40 @@ public class Aluno {
 
     // Construtor
     public Aluno() {
-        this.respostas = new byte[20];  // Array VAZIO! Será preenchido depois
+        this.respostas = new byte[10];  // Array VAZIO! Será preenchido depois
     }
 
-
     // Métodos
+    public int calcularAcertos(byte[] gabarito) {
+        int acum = 0;
 
+        for (int i = 0; i < respostas.length; i++) {
+            if (respostas[i] == gabarito[i]) {
+                acum++;
+            }
+        }
+        return acum;
+    }
+
+    public String calcularResultadoFinal(byte[] gabarito){
+        int acertos = this.calcularAcertos(gabarito);
+        String textoResultado = "";
+
+        if ((acertos >= 2) && (acertos <= 5)) {
+            textoResultado = "Aluno em Recuperação";
+        }
+        else if ((acertos >= 6) && (acertos <= 9)) {
+            textoResultado = "Aluno aprovado";
+        }
+        else if (acertos >= 10) {
+            textoResultado = "Aluno aprovado COM LÁUREA ACADÊMICA";
+        }
+        else {
+            textoResultado = "Reprovado";
+        }
+
+        return textoResultado;
+    }
 
     // toString
     @Override
