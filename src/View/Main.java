@@ -23,7 +23,7 @@ public class Main {
                 case 1:
                     System.out.println("\n\n\n\nCADASTRANDO ALUNO");
 
-                    String nome, ra, login, senha; // Desculpa sora...
+                    String nome, ra, login, senha; // #DesculpaAline
 
                     stdin.nextLine(); // FIX
 
@@ -50,7 +50,28 @@ public class Main {
 
                     break;
                 case 3:
-                    System.out.println("\n\n\n\nEM BREVE!");
+                    String tentaLogin, tentaSenha;    // Armazenam a tentativa de login, e #DesculpaAline
+
+                    do {
+                        System.out.println("AVALIAÇÃO DE JAVA!");
+
+                        System.out.println("Faça o Login (ENTER se necessário)!");
+                        stdin.nextLine();   // FIX
+
+                        System.out.print("Usuário: ");
+                        tentaLogin = stdin.nextLine();
+                        System.out.print("Senha: ");
+                        tentaSenha = stdin.nextLine();
+
+                        // Se credenciais estiverem certas
+                        if (tentaLogin.equals(badanha.getLogin()) && tentaSenha.equals(badanha.getSenha())) {
+                            System.out.println("LOGADO!");
+                        // SENÃO ERRO
+                        } else {
+                            System.out.println("ERRO! CREDENCIAIS INVÁLIDAS!");
+                        }
+
+                    } while (!(tentaLogin.equals(badanha.getLogin()) && tentaSenha.equals(badanha.getSenha())));
                     break;
                 case 0:
                     System.out.println("\n\n\n\nAté mais!");
@@ -60,30 +81,5 @@ public class Main {
             }
         }
         while (menu1 != 0);
-
-/*        // Variáveis
-        String login;
-        int senha;
-
-        do {
-            // Pede credenciais
-            System.out.println("AVALIAÇÃO DE JAVA");
-            System.out.println("Faça o LOGIN!");
-            System.out.print("Login: ");
-            login = stdin.nextLine();
-            System.out.print("Senha: ");
-            senha = stdin.nextInt();
-
-            // Caso esteja errado
-            if (!login.equals("alunosqi") || (senha != 12345)) {
-                System.out.println("ERRO! CREDENCIAIS INVÁLIDAS!");
-            }
-            // Senão segue
-            else {
-
-            }
-            stdin.nextLine();
-        }
-        while (!login.equals("alunosqi") || (senha != 12345)); */
     }
 }
